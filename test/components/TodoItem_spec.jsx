@@ -28,7 +28,8 @@ describe('TodoItem', () => {
         expect(todo[0].classList.contains('completed')).to.equal(true);
     });
 
-    it('invokes callback when the delete button is clicked', () => {
+    // WAITING Redux ...
+    /*it('invokes callback when the delete button is clicked', () => {
         const text = 'React';
         var deleted = false;
         // We define a mock deleteItem function
@@ -41,5 +42,5 @@ describe('TodoItem', () => {
 
         // We verify that the deleteItem function has been called
         expect(deleted).to.equal(true);
-    });
+    });*/
 });
