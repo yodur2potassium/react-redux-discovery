@@ -26,8 +26,9 @@ export class TodoApp extends React.Component {
             <section className="todoapp">
                 <TodoHeader />
                 <TodoList {...this.props}/>
-                <TodoTools filter={this.props.filter}
-                                   nbActiveItems={this.getNbActiveItems()} />
+                <TodoTools changeFilter={this.props.changeFilter}
+                           filter={this.props.filter}
+                           nbActiveItems={this.getNbActiveItems()} />
                 <Footer />
             </section>
         </div>
