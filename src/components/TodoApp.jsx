@@ -3,8 +3,9 @@ import TodoList from './TodoList';
 import TodoHeader from './TodoHeader';
 import TodoTools from './TodoTools';
 import Footer from './Footer';
+import {connect} from 'react-redux';
 
-export default class TodoApp extends React.Component {
+export class TodoApp extends React.Component {
     getNbActiveItems() {
             if (this.props.todos) {
                   const activeItems = this.props.todos.filter(
@@ -30,4 +31,13 @@ export default class TodoApp extends React.Component {
             </section>
         </div>
     }
-};
+}
+
+function mapStateToProps(state) {
+    return {
+        todos: state.get('todos'),
+        filter: state.get('filter')
+    };
+}
+
+export const TodoAppContainer = connect(mapStateToProps)(TodoApp);
