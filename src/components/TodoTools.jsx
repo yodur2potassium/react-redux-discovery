@@ -4,16 +4,16 @@ import classNames from 'classnames';
 
 export default React.createClass({
     mixins: [PureRenderMixin],
-    getNbItemsLeft: function () {
+    getNbItemsLeft() {
         return this.props.nbActiveItems || 0;
     },
     isSelected: function (filter) {
         return this.props.selectedFilter === filter || false;
     },
-    setSelectedClass: function (filter) {
+    setSelectedClass(filter) {
         return classNames({'selected': this.props.filter === filter});
     },
-    render: function () {
+    render() {
         return <footer className="footer">
       <span className="todo-count">
         <strong>{this.getNbItemsLeft()}</strong> items left

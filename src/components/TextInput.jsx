@@ -5,9 +5,10 @@ import classNames from 'classnames';
 
 export default React.createClass({
     mixins: [PureRenderMixin],
-    getInitialState: function() {
+    getInitialState() {
         return {value: this.props.text};
     },
+
     _handleKeyDown: function(e) {
         switch (e.key) {
             case 'Enter':
@@ -16,17 +17,21 @@ export default React.createClass({
                 return this.cancelEditing(this.props.itemId);
         }
     },
-    _handleOnBlur: function(e) {
+
+    _handleOnBlur(e) {
         return this.cancelEditing(this.props.itemId);
     },
-    _handleOnChange: function(e) {
+
+    _handleOnChange(e) {
         this.setState({value: e.target.value});
     },
-    cancelEditing: function() {
+
+    cancelEditing() {
         this.setState({'value': this.props.text});
         return this.props.cancelEditing(this.props.itemId);
     },
-    render: function () {
+
+    render() {
         return <input className="edit"
                       autoFocus={true}
                       value={this.state.value}

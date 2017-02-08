@@ -8,6 +8,7 @@ export default class TodoItem extends React.Component {
         super(props);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
     }
+
     render() {
         var itemClass = classNames({
             'todo': true,
