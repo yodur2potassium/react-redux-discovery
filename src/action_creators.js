@@ -61,3 +61,10 @@ export function deleteItem(itemId) {
         itemId
     }
 }
+export function attachFile(itemId, file) {
+    return {
+        type: 'ATTACH_FILE',
+        itemId,
+        file
+    }
+}
