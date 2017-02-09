@@ -31,13 +31,14 @@ export default React.createClass({
     },
     render(){
         return <textarea
-            value={this.state.value}
+            value={this.props.isVisible}
             onchange={this._handleOnChange}
             onblur={this._handleOnBlur}
             onkeydown={this._handleKeyDown}
             rows="5"
             cols="30"
             autofocus={true}
+            className='visible'
         />
     }
 });

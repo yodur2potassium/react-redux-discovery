@@ -35,9 +35,9 @@ function editItem(state, itemId) {
 function showDescription(state, itemId) {
     const itemIndex = findItemIndex(state, itemId);
     const updatedItem = state.get('todos')
-        .get(itemId)
-        .update('visiblity', visibility => visibility === 'visible' ? 'hidden' : 'visible');
-
+        .get(itemIndex)
+        .update('visiblity', visibility => visibility === 'hidden' ? 'visible' : 'hidden');
+    console.log(itemId);
     return state.update('todos',todos => todos.set(itemIndex, updatedItem));
 }
 
@@ -70,7 +70,7 @@ function clearCompleted(state) {
 
 function addItem(state, text) {
     const itemId = state.get('todos').reduce((maxId, item) => Math.max(maxId,item.get('id')), 0) + 1;
-    const newItem = Map({id: itemId, text: text, status: 'active'});
+    const newItem = Map({id: itemId, text: text, status: 'active', description: '', isVisible: 'hidden'});
     return state.update('todos', (todos) => todos.push(newItem));
 }
 

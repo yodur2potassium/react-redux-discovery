@@ -15,7 +15,6 @@ export default class TodoItem extends React.Component {
             'todo': true,
             'completed': this.props.isCompleted,
             'editing': this.props.isEditing,
-            'isVisible': this.props.isVisible
         });
         return <li className={itemClass}>
             <div className="view">
@@ -25,7 +24,7 @@ export default class TodoItem extends React.Component {
                        onClick={() => this.props.toggleComplete(this.props.id)} />
                 <label htmlFor="todo"
                        ref="text"
-                       onclick={() => this.props.showDescription(this.props.id)}
+                       onClick={() => this.props.showDescription(this.props.id)}
                        onDoubleClick={() => this.props.editItem(this.props.id)}
                 >
                     {this.props.text}
@@ -39,7 +38,7 @@ export default class TodoItem extends React.Component {
             />
             <TodoDescription text={this.props.description}
                              itemId={this.props.id}
-                             className={this.props.isVisible}
+                             isVisible={this.props.isVisible}
             />
         </li>
     }

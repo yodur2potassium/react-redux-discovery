@@ -20,6 +20,7 @@ export function editItem(itemId) {
 }
 
 export function showDescription(itemId){
+    console.log('plop');
     return {
         type: 'SHOW_DESCRIPTION',
         itemId
