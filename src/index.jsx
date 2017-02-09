@@ -9,7 +9,10 @@ import throttle from 'lodash/throttle';
 import {TodoAppContainer} from './components/TodoApp';
 
 const persistedState = loadState();
-const store = createStore(reducer);
+const store = createStore(
+    reducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 store.dispatch({
     type: 'SET_STATE',
