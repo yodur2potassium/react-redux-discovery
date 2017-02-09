@@ -6,7 +6,7 @@ export const loadState = () => {
                 todos: [
                     {id: 1, text: 'Faire du café', status: 'active', editing: false},
                     {id: 2, text: 'Faire le plein du Faucon Millenium', status: 'active', editing: false},
-                    {id: 3, text: 'Retrouver Chubaka', status: 'active', editing: false},
+                    {id: 3, text: 'Retrouver Chewbacca', status: 'active', editing: false},
                 ],
                 filter: 'all'
             };
