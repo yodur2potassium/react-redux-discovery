@@ -73,7 +73,6 @@ function deleteItem(state, itemId) {
     );
 }
 
-
 export default function(state = Map(), action) {
     switch (action.type) {
         case 'SET_STATE':
