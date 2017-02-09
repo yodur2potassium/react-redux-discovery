@@ -32,6 +32,15 @@ function editItem(state, itemId) {
     return state.update('todos', todos => todos.set(itemIndex, updatedItem));
 }
 
+function showDescription(state, itemId) {
+    const itemIndex = findItemIndex(state, itemId);
+    const updatedItem = state.get('todos')
+        .get(itemId)
+        .update('visiblity', visibility => visibility === 'visible' ? 'hidden' : 'visible');
+
+    return state.update('todos',todos => todos.set(itemIndex, updatedItem));
+}
+
 function cancelEditing(state, itemId) {
     const itemIndex = findItemIndex(state, itemId);
     const updatedItem = state.get('todos')
@@ -93,6 +102,8 @@ export default function(state = Map(), action) {
             return addItem(state, action.text);
         case 'DELETE_ITEM':
             return deleteItem(state, action.itemId);
+        case 'SHOW_DESCRIPTION':
+            return showDescription(state, action.itemId);
     }
     return state;
 }

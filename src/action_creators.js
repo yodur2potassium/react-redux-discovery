@@ -19,6 +19,13 @@ export function editItem(itemId) {
     }
 }
 
+export function showDescription(itemId){
+    return {
+        type: 'SHOW_DESCRIPTION',
+        itemId
+    }
+}
+
 export function cancelEditing(itemId) {
     return {
         type: 'CANCEL_EDITING',
