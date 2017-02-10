@@ -28,6 +28,7 @@ export default class TodoList extends React.Component {
                     <TodoItem key={item.get('text')}
                               text={item.get('text')}
                               id={item.get('id')}
+                              file={item.get('file')}
                               isCompleted={this.isCompleted(item)}
                               isEditing={item.get('editing')}
                               isVisible={item.get('isVisible')}
@@ -36,7 +37,8 @@ export default class TodoList extends React.Component {
                               cancelEditing={this.props.cancelEditing}
                               toggleComplete={this.props.toggleComplete}
                               deleteItem={this.props.deleteItem}
-                              editItem={this.props.editItem} />
+                              attachFile={this.props.attachFile}
+                              editItem={this.props.editItem}/>
                 )}
             </ul>
         </section>

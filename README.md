@@ -14,7 +14,7 @@ Goals:
  require node >= 6.4
  
  install dependencies: 
- `npm install`
+ `npm install`n
  
  build the app:
  `webpack`

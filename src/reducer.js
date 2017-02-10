@@ -82,6 +82,16 @@ function deleteItem(state, itemId) {
     );
 }
 
+function attachFile(state, itemId, file) {
+    const itemIndex = findItemIndex(state, itemId);
+    const updatedItem = state.get('todos')
+        .get(itemIndex)
+        .set('file', file.preview);
+
+
+    return state.update('todos', todos => todos.set(itemIndex, updatedItem));
+}
+
 export default function(state = Map(), action) {
     switch (action.type) {
         case 'SET_STATE':
@@ -104,6 +114,8 @@ export default function(state = Map(), action) {
             return deleteItem(state, action.itemId);
         case 'SHOW_DESCRIPTION':
             return showDescription(state, action.itemId);
+        case 'ATTACH_FILE':
+            return attachFile(state, action.itemId, action.file);
     }
     return state;
 }
