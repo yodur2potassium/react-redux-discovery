@@ -41,6 +41,14 @@ export function doneEditing(itemId, newText) {
     }
 }
 
+export function doneDescEditing(itemId, newText) {
+    return {
+        type: 'DONE_DESC_EDITING',
+        itemId,
+        newText
+    }
+}
+
 export function clearCompleted() {
     return {
         type: 'CLEAR_COMPLETED'

@@ -6,9 +6,9 @@ export default React.createClass({
 
     _handleKeyPress(e) {
         if (e.key === 'Enter' && this.refs.addTodoInput.value !== '') {
-            return this.props.addItem(
-                this.refs.addTodoInput.value
-            );
+            let value = this.refs.addTodoInput.value;
+            this.refs.addTodoInput.value = '';
+            return this.props.addItem(value);
         }
     },
 

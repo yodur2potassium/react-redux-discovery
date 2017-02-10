@@ -6,19 +6,12 @@ import classNames from 'classnames';
 export default React.createClass({
     mixins: [PureRenderMixin],
     getInitialState(){
-        return {value: this.props.text}
-    },
-    _handleKeyDown: function(e) {
-        switch (e.key) {
-            case 'Enter':
-                return this.props.doneEditing(this.props.itemId, this.state.value);
-            case 'Escape':
-                return this.cancelEditing(this.props.itemId);
-        }
+        return {value: this.props.description}
     },
 
     _handleOnBlur(e) {
-        return this.cancelEditing(this.props.itemId);
+        console.log('plop');
+        return this.props.doneDescEditing(this.props.itemId, this.state.value);
     },
 
     _handleOnChange(e) {
@@ -26,18 +19,21 @@ export default React.createClass({
     },
 
     cancelEditing() {
-        this.setState({'value': this.props.text});
+        this.setState({'value': this.props.description});
         return this.props.cancelEditing(this.props.itemId);
     },
     render(){
+        let descriptionStyle = {
+            width: '100%'
+        };
+
         return <textarea
-            value={this.props.isVisible}
-            onchange={this._handleOnChange}
-            onblur={this._handleOnBlur}
-            onkeydown={this._handleKeyDown}
+            value={this.state.value}
+            onChange={this._handleOnChange}
+            onBlur={this._handleOnBlur}
             rows="5"
             cols="30"
-            autofocus={true}
+            autoFocus={true}
             className={this.props.isVisible}
         />
     }

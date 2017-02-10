@@ -59,6 +59,16 @@ function doneEditing(state, itemId, newText) {
     return state.update('todos', todos => todos.set(itemIndex, updatedItem));
 }
 
+function doneDescEditing(state, itemId, newText) {
+    console.log(newText);
+    const itemIndex = findItemIndex(state, itemId);
+    const updatedItem = state.get('todos')
+        .get(itemIndex)
+        .set('description', newText);
+
+    return state.update('todos', todos => todos.set(itemIndex, updatedItem));
+}
+
 function clearCompleted(state) {
     return state.update('todos',
         (todos) => todos.filterNot(
@@ -105,6 +115,8 @@ export default function(state = Map(), action) {
             return cancelEditing(state, action.itemId);
         case 'DONE_EDITING':
             return doneEditing(state, action.itemId, action.newText);
+        case 'DONE_DESC_EDITING':
+            return doneDescEditing(state, action.itemId, action.newText);
         case 'CLEAR_COMPLETED':
             return clearCompleted(state);
         case 'ADD_ITEM':

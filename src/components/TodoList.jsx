@@ -29,11 +29,13 @@ export default class TodoList extends React.Component {
                               text={item.get('text')}
                               id={item.get('id')}
                               file={item.get('file')}
+                              description={item.get('description')}
                               isCompleted={this.isCompleted(item)}
                               isEditing={item.get('editing')}
                               isVisible={item.get('isVisible')}
                               showDescription={this.props.showDescription}
                               doneEditing={this.props.doneEditing}
+                              doneDescEditing={this.props.doneDescEditing}
                               cancelEditing={this.props.cancelEditing}
                               toggleComplete={this.props.toggleComplete}
                               deleteItem={this.props.deleteItem}

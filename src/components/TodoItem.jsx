@@ -17,6 +17,10 @@ export default class TodoItem extends React.Component {
             'completed': this.props.isCompleted,
             'editing': this.props.isEditing,
         });
+        let toggleStyle = {
+            top: '0px'
+        };
+
         return <li className={itemClass}>
             <div className="view">
                 <input type="checkbox"
@@ -40,9 +44,11 @@ export default class TodoItem extends React.Component {
                        cancelEditing={this.props.cancelEditing}
                        doneEditing={this.props.doneEditing}
             />
-            <TodoDescription text={this.props.description}
+            <TodoDescription description={this.props.description}
                              itemId={this.props.id}
                              isVisible={this.props.isVisible}
+                             cancelEditing={this.props.cancelEditing}
+                             doneDescEditing={this.props.doneDescEditing}
             />
         </li>
     }
