@@ -38,7 +38,7 @@ export default React.createClass({
             rows="5"
             cols="30"
             autofocus={true}
-            className='visible'
+            className={this.props.isVisible}
         />
     }
 });

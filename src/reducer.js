@@ -36,8 +36,7 @@ function showDescription(state, itemId) {
     const itemIndex = findItemIndex(state, itemId);
     const updatedItem = state.get('todos')
         .get(itemIndex)
-        .update('visiblity', visibility => visibility === 'hidden' ? 'visible' : 'hidden');
-    console.log(itemId);
+        .update('isVisible', visibility => visibility === 'hidden' ? 'visible' : 'hidden');
     return state.update('todos',todos => todos.set(itemIndex, updatedItem));
 }
 
