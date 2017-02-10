@@ -22,8 +22,15 @@ export default class TodoList extends React.Component {
     }
 
     render() {
+        let containerStyle = {
+            display: "flex",
+            flexDirection: "column",
+            width: "100%",
+            height: "100%"
+        };
         return <section className="main">
-            <ul className="todo-list">
+            <div style={containerStyle}
+                className="todo-list">
                 {this.getItems().map(item =>
                     <TodoItem key={item.get('text')}
                               text={item.get('text')}
@@ -42,7 +49,7 @@ export default class TodoList extends React.Component {
                               attachFile={this.props.attachFile}
                               editItem={this.props.editItem}/>
                 )}
-            </ul>
+            </div>
         </section>
     }
 };

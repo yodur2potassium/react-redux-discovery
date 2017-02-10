@@ -17,13 +17,21 @@ export default class TodoItem extends React.Component {
             'completed': this.props.isCompleted,
             'editing': this.props.isEditing,
         });
-        let toggleStyle = {
-            top: '0px'
+
+        let cardStyle = {
+          padding: 10
         };
 
-        return <li className={itemClass}>
+        let toggleStyle = {
+            top: 10,
+            left: 10
+        };
+
+        return <div style={cardStyle}
+                className={itemClass}>
             <div className="view">
                 <input type="checkbox"
+                       style={toggleStyle}
                        className="toggle"
                        defaultChecked={this.props.isCompleted}
                        onClick={() => this.props.toggleComplete(this.props.id)} />
@@ -32,7 +40,6 @@ export default class TodoItem extends React.Component {
                        onClick={() => this.props.showDescription(this.props.id)}
                        onDoubleClick={() => this.props.editItem(this.props.id)}
                 >
-                    {this.props.text}
                 </label>
                 <FileInput attachFile={this.props.attachFile}
                            itemId={this.props.id}
@@ -50,6 +57,6 @@ export default class TodoItem extends React.Component {
                              cancelEditing={this.props.cancelEditing}
                              doneDescEditing={this.props.doneDescEditing}
             />
-        </li>
+        </div>
     }
 };

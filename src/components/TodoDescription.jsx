@@ -24,15 +24,18 @@ export default React.createClass({
     },
     render(){
         let descriptionStyle = {
-            width: '100%'
+            width: 500,
+            margin: 0,
+            padding: 15,
+            borderWidth: 0
         };
 
         return <textarea
+            style={descriptionStyle}
             value={this.state.value}
             onChange={this._handleOnChange}
             onBlur={this._handleOnBlur}
             rows="5"
-            cols="30"
             autoFocus={true}
             className={this.props.isVisible}
         />
