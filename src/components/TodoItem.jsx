@@ -3,6 +3,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import classNames from 'classnames';
 import TextInput from './TextInput';
 import TodoDescription from './TodoDescription.jsx';
+import FileInput from './FileInput';
 
 export default class TodoItem extends React.Component {
     constructor(props) {
@@ -29,6 +30,9 @@ export default class TodoItem extends React.Component {
                 >
                     {this.props.text}
                 </label>
+                <FileInput attachFile={this.props.attachFile}
+                           itemId={this.props.id}
+                           file={this.props.file} />
                 <button className="destroy" onClick={() => this.props.deleteItem(this.props.id)}/>
             </div>
             <TextInput text={this.props.text}
